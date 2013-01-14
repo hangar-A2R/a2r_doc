@@ -1,0 +1,242 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{subfig}
+\usepackage{tikz}
+\usepackage{fancyvrb}
+\usepackage{color}
+
+\begin{document}
+\title{Whasap}
+
+
+\definecolor{CodeColor}{rgb}{0,0.08,0.45}
+\definecolor{BadCodeColor}{rgb}{0.6,0.6,0.6}
+\newcommand{\code}[1]{\texttt{\textcolor{CodeColor}{#1}}}
+\newcommand{\badcode}[1]{\texttt{\textcolor{BadCodeColor}{#1}}}
+\newcommand\PYZat{@}
+\newcommand\PYZlb{[}
+\newcommand\PYZrb{]}
+\newcommand\PYbh[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand\PYbg[1]{\textcolor[rgb]{0.73,0.40,0.53}{\textbf{#1}}}
+\newcommand\PYbf[1]{\textcolor[rgb]{0.82,0.25,0.23}{\textbf{#1}}}
+\newcommand\PYbe[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand\PYbd[1]{\textcolor[rgb]{0.73,0.13,0.13}{#1}}
+\newcommand\PYbc[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand\PYbb[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand\PYba[1]{\textcolor[rgb]{0.00,0.00,0.50}{\textbf{#1}}}
+\newcommand\PYaJ[1]{\textcolor[rgb]{0.69,0.00,0.25}{#1}}
+\newcommand\PYaK[1]{\textcolor[rgb]{0.73,0.13,0.13}{#1}}
+\newcommand\PYaH[1]{\textcolor[rgb]{0.50,0.00,0.50}{\textbf{#1}}}
+\newcommand\PYaI[1]{\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{#1}}
+\newcommand\PYaN[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand\PYaO[1]{\textcolor[rgb]{0.00,0.00,1.00}{\textbf{#1}}}
+\newcommand\PYaL[1]{\textcolor[rgb]{0.00,0.00,1.00}{#1}}
+\newcommand\PYaM[1]{\textcolor[rgb]{0.73,0.73,0.73}{#1}}
+\newcommand\PYaB[1]{\textcolor[rgb]{0.73,0.13,0.13}{#1}}
+\newcommand\PYaC[1]{\textcolor[rgb]{0.67,0.13,1.00}{#1}}
+\newcommand\PYaA[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand\PYaF[1]{\textcolor[rgb]{0.63,0.00,0.00}{#1}}
+\newcommand\PYaG[1]{\textcolor[rgb]{1.00,0.00,0.00}{#1}}
+\newcommand\PYaD[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand\PYaE[1]{\textcolor[rgb]{0.25,0.50,0.50}{\textit{#1}}}
+\newcommand\PYaZ[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand\PYaX[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand\PYaY[1]{\textcolor[rgb]{0.73,0.13,0.13}{#1}}
+\newcommand\PYaR[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand\PYaS[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand\PYaP[1]{\textcolor[rgb]{0.00,0.00,0.50}{\textbf{#1}}}
+\newcommand\PYaQ[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand\PYaV[1]{\textcolor[rgb]{0.00,0.00,1.00}{\textbf{#1}}}
+\newcommand\PYaW[1]{\textcolor[rgb]{0.73,0.13,0.13}{#1}}
+\newcommand\PYaT[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand\PYaU[1]{\textcolor[rgb]{0.25,0.50,0.50}{\textit{#1}}}
+\newcommand\PYaj[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand\PYak[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand\PYah[1]{\textcolor[rgb]{0.63,0.63,0.00}{#1}}
+\newcommand\PYai[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand\PYan[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand\PYao[1]{\textcolor[rgb]{0.73,0.40,0.13}{\textbf{#1}}}
+\newcommand\PYal[1]{\textcolor[rgb]{0.25,0.50,0.50}{\textit{#1}}}
+\newcommand\PYam[1]{\textbf{#1}}
+\newcommand\PYab[1]{\textit{#1}}
+\newcommand\PYac[1]{\textcolor[rgb]{0.73,0.13,0.13}{#1}}
+\newcommand\PYaa[1]{\textcolor[rgb]{0.50,0.50,0.50}{#1}}
+\newcommand\PYaf[1]{\textcolor[rgb]{0.25,0.50,0.50}{\textit{#1}}}
+\newcommand\PYag[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand\PYad[1]{\textcolor[rgb]{0.00,0.25,0.82}{#1}}
+\newcommand\PYae[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand\PYaz[1]{\textcolor[rgb]{0.00,0.63,0.00}{#1}}
+\newcommand\PYax[1]{\textcolor[rgb]{0.60,0.60,0.60}{\textbf{#1}}}
+\newcommand\PYay[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand\PYar[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand\PYas[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand\PYap[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand\PYaq[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand\PYav[1]{\textcolor[rgb]{0.67,0.13,1.00}{\textbf{#1}}}
+\newcommand\PYaw[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand\PYat[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand\PYau[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+
+\section{Quickly and easy install of the A2R tool}
+The following instructions have been written during the installation process of the A2R tool, in a Debian Squeeze host, in order to help those who face a new installation.\\
+
+First thing, install node.js from source:
+
+\begin{verbatim}
+wget http://nodejs.org/dist/v0.8.17/node-v0.8.17.tar.gz
+tar xzvf node-v0.8.17.tar.gz
+cd node-v0.8.17/
+ls
+./configure
+make
+make install
+\end{verbatim}
+
+Notice that the last command (\emph{make install}) must be executed with root privileges. \\
+
+Once we have node.js installed and running we can start installing the A2R index and proxy servers.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+apt-get install mongodb
+
+https://github.com/Terminal21/a2r_index.git
+cd a2r_index/
+npm install cjson express jade mongoose node-syslog optimist
+node a2r_index.js
+\end{Verbatim}
+
+Leave the index server running and switch to another terminal :
+
+\begin{Verbatim}
+https://github.com/Terminal21/a2r_proxy.git
+cd a2r_proxy/
+npm install cjson node-syslog optimist osc-min request
+\end{Verbatim}
+
+Before running the script, we must edit the file \emph{config/proxy.config} to match the IP address of the index server. In this case, for my local host, the values are : 
+
+\begin{Verbatim}[commandchars=@\[\]]
+  @PYay["index_server_address"]: @PYaB["192.168.1.39"],  // never ever set this to 127.0.0.1
+  @PYay["index_server_port"]: @PYaB[7000]
+\end{Verbatim}
+
+Then we can start the proxy:
+
+\begin{Verbatim}
+node a2r_proxy.js
+\end{Verbatim}
+
+Oce we have both index and proxy servers running without errors we can install the python client. So, in another terminal:
+
+\begin{Verbatim}
+apt-get install python-cherrypy3
+
+git clone https://github.com/hangar-A2R/a2r_python_client.git
+cd a2r_python_client/
+\end{Verbatim}
+
+Before running the python client we must edit the file \emph{a2r\_python\_client.py} and change lines 13, 14, 17,and 18 to match the IP address and port where the python will be accesible, and where the index server is listening. In my case: 
+
+\begin{Verbatim}[commandchars=@\[\]]
+@PYaV[# The IP address and port where this GUI server will be available]
+@PYay[gui_server_ip]   = @PYaB["192.168.1.39"]
+@PYay[gui_server_port] = @PYaB[8181]
+
+@PYaV[# The IP address and port where A2R_index is listening]
+@PYay[index_ip]   = @PYaB["192.168.1.39"]
+@PYay[index_port] = @PYaB[7000]
+\end{Verbatim}
+
+Then we can start the client:
+
+\begin{Verbatim}
+python a2r_python_client.py
+\end{Verbatim}
+
+If we have done the installation correctly the python client should be accessible via any web browser in the IP address and port specified:
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=3.7in]{Captura1.png}
+\label{fig:capt1}
+\end{figure}
+
+However, as shown in the previous figure, the default behaviour of the web client doesn't allow to do nothing until there are non active sessions playing. So, the next thing to try is to start a new session. For that we can make use of the A2R PureData demo patches:
+
+\begin{Verbatim}
+https://github.com/hangar-A2R/a2r_pd_patches.git
+cd a2r_pd_patches
+\end{Verbatim}
+
+In order to start a session in the correct way you must edit the example patch a2r\_threecososcillator.pd and modify the OSC bundle announcement (inside the a2r\_announcement subpatch) and the login and mountpoint information for your audio stream (inside the a2r\_streamer subpatch). The a2r\_announcement subpatch is where your session communicate with the A2R proxy and index server, announcing that a new session is available. The a2r\_streamer subpatch is an audio streaming module allowing remote users to listen the session. If you don't understand what are the values to modify refer to sections \ref{sec:announcement} and \ref{sec:streaming} of this document.
+
+Once the demo patch is correctly configured you can start a new session just by opening it : 
+
+\begin{Verbatim}
+pd-extended -nogui a2r_threecososcillator.pd
+\end{Verbatim}
+
+If the patch initializes correctly, with all the mandatory fields in the OSC announcement and using the proper IP and port of the proxy server, we should be able to see our new session in the list of Addicted2Random Active Sessions of the python client interface:
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=3.7in]{Captura2.png}
+\label{fig:capt2}
+\end{figure}
+
+Now, from the browser we should be able to select the running session and start listening and interacting with it:
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=3.7in]{Captura3.png}
+\label{fig:capt3}
+\end{figure}
+
+\subsection{Troubleshoting}
+
+A good way of troubleshoting is by looking at the flow diagram of the A2R tool:
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=3.7in]{a2r_Diagram.jpg}
+\label{fig:diagram}
+\end{figure}
+
+If you have all the pieces running just try to follow the flow shown in the figure. Start the pd patch and check if the streaming is running (0), then check if the proxy server has received the announcement (1) if not it's probable that your pd patch is sending the OSC announcement to a wrong IP or port, then check if the index is also informed (2) of the new session (try starting the index server in verbose mode with "node a2r\_index.js -v"), again if the index doesn't receive nothing it's probable that you don't have a correct value for the index server IP or port in the proxy.conf file.  \\
+
+
+
+\section{About the python client}
+The python client is intended to be a way for interacting with the A2R tool from any web browser. So it's an alternative to the android app. However, the way it works is exactly the same.
+
+ \begin{itemize}
+        \item{First it connects to the A2R index server to get list of active sessions.}
+	\item{The user selects a session to play.}
+	\item{Start playing the audio stream and builds a GUI for interacting with the sound. }
+ \end{itemize}
+
+The whole application is exposed to the browsers using \emph{Cherrypy} so it's basically a web server waiting for two different kinds of browser "GET" requests:
+
+ \begin{itemize}
+	\item{When "GET /" is received the python client connects via TCP socket to the index server in order to build a web GUI interface with the information of all active sessions: metadata, proxy url and port, audio stream url, etc...}
+	\item{When "GET /send\_data" is received the python client send data to the proxy server via UDP in a compact packet (8 bits for sensor identifier, 16 bits for the value, and 8 bits for CRC checksum).}
+ \end{itemize}
+
+\subsection{Browsers}
+The web interface is supposed to work in any HTML5 browser, (for now it's only tested in Firefox (v. 16.0 and 18.0) and Chrome (23.0)), both in desktop and mobile versions. However, We've seen a large difference between Firefox and Chrome audio buffering, being Chrome much more slow than Firefox in start playing audio, this means a lot of "lag" in our scenario. We are still trying to solve this issues in Chrome, so for the moment is better to use Firefox.
+
+\section{OSC announcement}
+\label{sec:announcement}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+
+\section{Audio stream}
+\label{sec:streaming}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+
+\end{document}
